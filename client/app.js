@@ -1,4 +1,6 @@
-import React from 'react'
+'use strict'
+
+import React     from 'react'
 import { Route } from 'react-router-dom'
 
 import { CalendarPage }  from './components/calendar'
