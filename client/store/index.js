@@ -5,11 +5,11 @@ import { composeWithDevTools }                           from 'redux-devtools-ex
 import createLogger                                      from 'redux-logger'
 import thunkMiddleware                                   from 'redux-thunk'
 
-import task from './task'
+import tasks from './tasks'
 
-const reducer    = combineReducers({ task })
+const reducer    = combineReducers({ tasks })
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger({ collapsed: true })))
 const store      = createStore(reducer, middleware)
 
 export default store
-export * from './task'
+export * from './tasks'

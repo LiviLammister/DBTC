@@ -7,8 +7,8 @@ async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
   await Promise.all([
-    Task.create({ name: 'French' }),
-    Task.create({ name: 'Italian' }),
+    Task.create({ name: 'French',   imgUrl: '/img/eiffel-tower.png'}),
+    Task.create({ name: 'Italian',  imgUrl: '/img/coliseum.png'}),
     Task.create({ name: 'Paleo' }),
     Task.create({ name: 'No Waste' }),
     Task.create({ name: 'No Spend' })
@@ -34,5 +34,4 @@ if (module === require.main) {
   runSeed()
 }
 
-// we export the seed function for testing purposes (see `./seed.spec.js`)
 module.exports = seed

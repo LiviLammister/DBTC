@@ -6,6 +6,10 @@ const Task = db.define('task', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  imgUrl: {
+    type: Sequelize.STRING,
+    defaultValue: '/img/question.png'
+  },
   currentStreak: {
     type: Sequelize.INTEGER,
     defaultValue: 0,
