@@ -1,15 +1,13 @@
 import React     from 'react'
 import PropTypes from 'prop-types'
+import { Link }  from 'react-router-dom'
 import {
   Button,
   Card,
   Container,
   Image,
-  Modal,
   Statistic
 } from 'semantic-ui-react'
-
-import { EditTask } from './index'
 
 const TaskCard = (props) => {
   const { task } = props
@@ -26,10 +24,9 @@ const TaskCard = (props) => {
       </Card.Content>
       <Card.Content extra>
         <Button.Group floated='right'>
-          <Modal trigger ={<Button basic icon='ellipsis horizontal' />}>Edit</Modal>
-          <EditTask />
+          <Button basic icon ='check' />
+          <Button basic icon='ellipsis horizontal' as={Link} to={`/tasks/${task.id}`} />
         </Button.Group>
-        <Button basic icon ='check' />
       </Card.Content>
     </Card>
   )

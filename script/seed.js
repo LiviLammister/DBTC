@@ -7,11 +7,12 @@ async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
   await Promise.all([
-    Task.create({ name: 'French',   imgUrl: '/img/eiffel-tower.png'}),
-    Task.create({ name: 'Italian',  imgUrl: '/img/coliseum.png'}),
-    Task.create({ name: 'Paleo' }),
-    Task.create({ name: 'No Waste' }),
-    Task.create({ name: 'No Spend' })
+    Task.create({ name: 'French',     imgUrl: '/img/eiffel-tower.png'  }),
+    Task.create({ name: 'Italian',    imgUrl: '/img/coliseum.png'      }),
+    Task.create({ name: 'Meditation', imgUrl: '/img/yoga.png'          }),
+    Task.create({ name: 'No Waste',   imgUrl: '/img/recycling.png'     }),
+    Task.create({ name: 'No Spend',   imgUrl: '/img/dollar-symbol.png' }),
+    Task.create({ name: 'Paleo',      imgUrl: '/img/eat.png'           })
   ])
   console.log(`seeded successfully`)
 }
