@@ -1,27 +1,20 @@
-import React       from 'react'
-import PropTypes   from 'prop-types'
-import { connect } from 'react-redux'
+import React               from 'react'
+import PropTypes           from 'prop-types'
+import { connect }         from 'react-redux'
+import { Card, Container } from 'semantic-ui-react'
 
-import { Button, Container, Header, Item } from 'semantic-ui-react'
-
-import { Task } from '../tasks'
+import { TaskCard } from '../tasks'
 
 const TasksPage = (props) => {
   const { tasks } = props
   if (!tasks) return <div />
   return (
-    <Container text>
-      <Header as='h2' floated='right'>
-        <Button content='Add Task' />
-      </Header>
-      <Header as='h2' floated='left'>
-        TASKS
-      </Header>
-      <Item.Group divided>
+    <Container>
+      <Card.Group centered>
         {tasks.map(task =>
-          <Task key={task.id} task={task} />
+          <TaskCard key={task.id} task={task} />
         )}
-      </Item.Group>
+      </Card.Group>
     </Container>
   )
 }
