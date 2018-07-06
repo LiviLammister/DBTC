@@ -1,9 +1,9 @@
-import React               from 'react'
-import PropTypes           from 'prop-types'
-import { connect }         from 'react-redux'
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { Card, Container } from 'semantic-ui-react'
 
-import { TaskCard } from '../tasks'
+import { NewTask,TaskCard } from './index'
 
 const TasksPage = (props) => {
   const { tasks } = props
@@ -11,6 +11,7 @@ const TasksPage = (props) => {
   return (
     <Container>
       <Card.Group centered>
+        <NewTask />
         {tasks.map(task =>
           <TaskCard key={task.id} task={task} />
         )}
@@ -19,8 +20,8 @@ const TasksPage = (props) => {
   )
 }
 
-TasksPage.propTypes = {tasks: PropTypes.arrayOf(PropTypes.object)}
+TasksPage.propTypes = { tasks: PropTypes.arrayOf(PropTypes.object) }
 
-const mapStateToProps = ({tasks}) => ({tasks})
+const mapStateToProps = ({ tasks }) => ({ tasks })
 
 export default connect(mapStateToProps)(TasksPage)
