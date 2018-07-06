@@ -1,4 +1,5 @@
 const isDev = process.env.NODE_ENV === 'development'
+const path = require('path')
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
@@ -16,15 +17,19 @@ module.exports = {
   devtool: 'source-map',
   module: {
     rules: [
+      { 
+        test: /\.js$/, include: path.join(__dirname, 'src'),
+        loaders: ['babel-loader']
+      },
+      {
+        test: /(\.css|\.sass|\.scss)$/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader']
+      },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
-      {
-        test: /\.scss$/,
-        use: 'css-loader' 
-      }
     ]
   }
 }
