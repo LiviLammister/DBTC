@@ -5,8 +5,8 @@ import { Route, withRouter } from 'react-router-dom'
 import { connect }           from 'react-redux'
 
 import {
+  Dashboard,
   Navigation,
-  TaskDetail,
   TasksPage,
 }  from './components'
 
@@ -21,8 +21,8 @@ class App extends Component {
     return (
       <div>
         <Navigation />
-        <Route exact path='/tasks'     component={TasksPage}     />
-        <Route exact path='/tasks/:id' component={TaskDetail}    />
+        <Route exact path='/'      component={Dashboard} />
+        <Route exact path='/tasks' component={TasksPage} />
       </div>
     )
   }

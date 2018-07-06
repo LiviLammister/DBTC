@@ -1,6 +1,5 @@
 import React     from 'react'
 import PropTypes from 'prop-types'
-import { Link }  from 'react-router-dom'
 import {
   Button,
   Card,
@@ -8,6 +7,8 @@ import {
   Image,
   Statistic
 } from 'semantic-ui-react'
+
+import { TaskDetail } from './index'
 
 const TaskCard = (props) => {
   const { task } = props
@@ -25,7 +26,7 @@ const TaskCard = (props) => {
       <Card.Content extra>
         <Button.Group floated='right'>
           <Button basic icon ='check' />
-          <Button basic icon='ellipsis horizontal' as={Link} to={`/tasks/${task.id}`} />
+          <TaskDetail />
         </Button.Group>
       </Card.Content>
     </Card>
