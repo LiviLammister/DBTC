@@ -12,7 +12,8 @@ async function seed() {
     Task.create({ name: 'Meditation', imgUrl: '/img/yoga.png'          }),
     Task.create({ name: 'No Waste',   imgUrl: '/img/recycling.png'     }),
     Task.create({ name: 'No Spend',   imgUrl: '/img/dollar-symbol.png' }),
-    Task.create({ name: 'Paleo',      imgUrl: '/img/eat.png'           })
+    Task.create({ name: 'Paleo',      imgUrl: '/img/eat.png'           }),
+    Task.create({ name: 'Read',       imgUrl: '/img/book.png'          })
   ])
   console.log(`seeded successfully`)
 }

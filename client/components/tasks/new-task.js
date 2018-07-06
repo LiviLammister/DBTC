@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Container, Divider, Statistic } from 'semantic-ui-react'
+import { Card, Container, Statistic } from 'semantic-ui-react'
 
 const NewTask = () => (
   <Card>
