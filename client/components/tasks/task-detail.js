@@ -11,7 +11,7 @@ const TaskDetail = (props) => (
         pointing: true,
       }}
       panes={[
-        { menuItem: 'Calendar',   render: () => <Tab.Pane><CalendarPane /></Tab.Pane> },
+        { menuItem: 'Calendar',   render: () => <Tab.Pane style={{'border': '0px'}}><CalendarPane /></Tab.Pane> },
         { menuItem: 'Statistics', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
       ]}
     />
