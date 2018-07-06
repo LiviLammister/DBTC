@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button, Container, Tab } from 'semantic-ui-react'
 
+import { CalendarPane } from './index'
+
 const TaskDetail = (props) => (
   <Container text>
     <Tab
@@ -9,7 +11,7 @@ const TaskDetail = (props) => (
         pointing: true,
       }}
       panes={[
-        { menuItem: 'Calendar',   render: () => <Tab.Pane>Tab 1 Content</Tab.Pane> },
+        { menuItem: 'Calendar',   render: () => <Tab.Pane><CalendarPane /></Tab.Pane> },
         { menuItem: 'Statistics', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
       ]}
     />
