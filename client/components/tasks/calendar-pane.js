@@ -1,29 +1,30 @@
-import React, { Component } from 'react';
-import Calendar from 'react-calendar';
+import 'react-dates/initialize'
+import 'react-dates/lib/css/_datepicker.css'
 
-const styles = {
-  outerDiv: {
-    'display': 'inline-block',
-    'margin': '0px',
-    'padding': '0px',
-  }
-}
+import React, { Component } from 'react'
+import { SingleDatePicker } from 'react-dates'
+import moment from 'moment'
+
+moment().format()
+
 class CalendarPane extends Component {
   state = {
-    date: new Date(),
+    date: new moment(),
+    focused: true
   }
 
   onChange = date => this.setState({ date })
 
   render() {
     return (
-      <div style={styles.outerDiv}>
-        <Calendar
-          onChange={this.onChange}
-          value={this.state.date}
-        />
-      </div>
-    );
+      <SingleDatePicker
+        date={this.state.date} // momentPropTypes.momentObj or null
+        onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
+        focused={this.state.focused} // PropTypes.bool
+        onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
+        id="your_unique_id" // PropTypes.string.isRequired,
+      />
+    )
   }
 }
 

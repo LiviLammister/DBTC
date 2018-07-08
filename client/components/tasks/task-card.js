@@ -1,6 +1,7 @@
 import React     from 'react'
 import PropTypes from 'prop-types'
 import {
+  Button,
   Card,
   Grid,
   Header,
@@ -16,11 +17,14 @@ const TaskCard = (props) => {
       <Image style={{'padding': '5px'}} src={ task.imgUrl } />
       <Card.Content>
         <Grid verticalAlign='middle'>
-          <Grid.Column width='8' floated='left'>
+          <Grid.Column width='6' floated='left'>
             <Header as='h3'>{ task.name }</Header>
           </Grid.Column>
-          <Grid.Column width='4' floated='right'>
-            <TaskDetail />
+          <Grid.Column width='6' floated='right'>
+            <Button.Group>
+              <Button basic color='green' icon='check' />
+              <TaskDetail task={task} />
+            </Button.Group>
           </Grid.Column>
         </Grid>
       </Card.Content>
