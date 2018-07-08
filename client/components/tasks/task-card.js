@@ -1,11 +1,10 @@
 import React     from 'react'
 import PropTypes from 'prop-types'
 import {
-  Button,
   Card,
-  Container,
-  Image,
-  Statistic
+  Grid,
+  Header,
+  Image
 } from 'semantic-ui-react'
 
 import { TaskDetail } from './index'
@@ -14,20 +13,16 @@ const TaskCard = (props) => {
   const { task } = props
   return (
     <Card>
+      <Image style={{'padding': '5px'}} src={ task.imgUrl } />
       <Card.Content>
-        <Image floated='right' size='mini' src={task.imgUrl} />
-        <Card.Header>{task.name}</Card.Header>
-        <Card.Description>
-          <Container textAlign='center'>
-            <Statistic label='Current Streak' value={task.currentStreak} />
-          </Container>
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <Button.Group floated='right'>
-          <Button basic icon ='check' />
-          <TaskDetail />
-        </Button.Group>
+        <Grid verticalAlign='middle'>
+          <Grid.Column width='8' floated='left'>
+            <Header as='h3'>{ task.name }</Header>
+          </Grid.Column>
+          <Grid.Column width='4' floated='right'>
+            <TaskDetail />
+          </Grid.Column>
+        </Grid>
       </Card.Content>
     </Card>
   )
