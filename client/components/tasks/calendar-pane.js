@@ -23,6 +23,7 @@ class CalendarPane extends Component {
         focused={this.state.focused} // PropTypes.bool
         onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
         id="your_unique_id" // PropTypes.string.isRequired,
+        numberOfMonths={2}
       />
     )
   }
