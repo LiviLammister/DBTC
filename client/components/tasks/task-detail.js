@@ -7,12 +7,6 @@ import "react-big-calendar/lib/css/react-big-calendar.css"
 moment().format()
 BigCalendar.momentLocalizer(moment)
 
-const st = {
-  view: "day",
-  date: new Date(2015, 3, 12),
-  width: 500
-};
-
 const events = [
   {
     'title': 'All Day Event very long title',
@@ -110,17 +104,12 @@ const allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k]);
 const TaskDetail = () => (
   <Modal trigger={<Button basic color='grey' icon='ellipsis horizontal' />}>
     <Modal.Header content='Details' />
-    <BigCalendar
-          style={{ height: 500, width: st.width }}
-          toolbar={false}
-          events={events}
-          step={60}
-          views={allViews}
-          view={st.view}
-          onView={() => {}}
-          date={st.date}
-          onNavigate={null}
-        />
+    <div style={{'padding': '20px'}}>
+      <BigCalendar
+        style={{'height': '400px'}}
+        events={events}
+      />
+    </div>
   </Modal>
 )
 
