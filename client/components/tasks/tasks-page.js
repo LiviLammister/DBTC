@@ -5,8 +5,7 @@ import { Card, Header }    from 'semantic-ui-react'
 
 import { NewTask,TaskCard } from './index'
 
-const TasksPage = (props) => {
-  const { tasks } = props
+const TasksPage = ({ tasks }) => {
   if (!tasks) return <div />
   return (
     <div>
