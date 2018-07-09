@@ -1,4 +1,5 @@
 const Task = require('./task')
 
-module.exports = Task
-
+module.exports = {
+  Task
+}
