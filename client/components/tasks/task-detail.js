@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Modal } from 'semantic-ui-react'
+import { Button, Divider, Modal } from 'semantic-ui-react'
 import { CalendarPane } from './index'
 
 const TaskDetail = () => (
@@ -9,6 +9,7 @@ const TaskDetail = () => (
       <div style={{'margin': 'auto', 'height': '375px'}}>
         <CalendarPane />
       </div>
+      <Divider />
       Hello
     </Modal.Content>
   </Modal>
