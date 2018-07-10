@@ -1,9 +1,9 @@
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
 
-import moment                   from 'moment'
-import PropTypes                from 'prop-types'
-import React, { Component }     from 'react'
+import moment                                  from 'moment'
+import PropTypes                               from 'prop-types'
+import React                                   from 'react'
 import { DayPickerRangeController, isSameDay } from 'react-dates'
 
 moment().format()
