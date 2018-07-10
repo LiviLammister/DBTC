@@ -1,4 +1,4 @@
-const router = require('express').Router()
+const router   = require('express').Router()
 const { Task } = require('../db/models')
 
 module.exports = router
@@ -18,13 +18,24 @@ router.post('/', async (req, res, next) => {
     res.json(result[1])
   } catch (err) {
     next(err)
-  }  
+  }
 })
 
-router.get('./:id', async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   try {
     const task = await Task.findById(req.params.id)
     res.json(task)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    const result = await Task.update({
+      dates: req.body.dates
+    }, { where: { id: req.params.id }, returning: true })
+    res.json(result)
   } catch (err) {
     next(err)
   }

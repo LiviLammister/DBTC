@@ -19,6 +19,10 @@ const Task = db.define('task', {
     type: Sequelize.INTEGER,
     defaultValue: 0,
     allowNull: false
+  },
+  dates: {
+    type: Sequelize.ARRAY(Sequelize.STRING),
+    defaultValue: []
   }
 })
 
