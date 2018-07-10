@@ -21,7 +21,7 @@ const TaskCard = (props) => {
   const ifFinishedToday = () => task.dates.includes(today)
   return (
     <Card>
-      <Image style={{ 'padding': '5px' }} src={ifFinishedToday() ? '/img/check.png' : task.imgUrl} />
+      <Image src={ifFinishedToday() ? '/img/check.png' : task.imgUrl} style={{ 'padding': '5px' }} />
       <Card.Content>
         <Grid verticalAlign='middle'>
           <Grid.Column width='10' floated='left'>

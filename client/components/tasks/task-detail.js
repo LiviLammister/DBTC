@@ -34,10 +34,8 @@ class TaskDetail extends Component {
           <Divider />
         </Modal.Content>
         <Modal.Content>
-          <Statistic.Group widths='three' size='large'>
+          <Statistic.Group widths='one' size='large'>
             <Statistic value={task.dates.length} label='Total Days' />
-            <Statistic value={task.currentStreak} label='Current Streak' />
-            <Statistic value={task.longestStreak} label='Longest Streak' />
           </Statistic.Group>
           <Divider hidden />
         </Modal.Content>

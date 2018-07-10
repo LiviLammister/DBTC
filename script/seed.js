@@ -10,21 +10,15 @@ async function seed() {
     Task.create({
       name: 'French',
       imgUrl: '/img/eiffel-tower.png',
-      currentStreak: 0,
-      longestStreak: 0,
     }),
     Task.create({
       name: 'Italian',
       imgUrl: '/img/coliseum.png',
-      currentStreak: 1,
-      longestStreak: 1,
       dates: ['2018-07-08']
     }),
     Task.create({
       name: 'Meditation',
       imgUrl: '/img/yoga.png',
-      currentStreak: 2,
-      longestStreak: 2,
       dates: ['2018-07-07', '2018-07-08']
     }),
     Task.create({
@@ -42,15 +36,11 @@ async function seed() {
     Task.create({
       name: 'Read',
       imgUrl: '/img/book.png',
-      currentStreak: 1,
-      longestStreak: 1,
       dates: ['2018-07-08']
     }),
     Task.create({
       name: 'Write App',
       imgUrl: '/img/coding.png',
-      currentStreak: 1,
-      longestStreak: 1,
       dates: ['2018-07-08']
     })
   ])

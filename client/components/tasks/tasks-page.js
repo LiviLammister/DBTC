@@ -1,18 +1,32 @@
-import React       from 'react'
-import PropTypes   from 'prop-types'
-import { connect } from 'react-redux'
-import { Card, Header }    from 'semantic-ui-react'
+import moment                    from 'moment'
+import PropTypes                 from 'prop-types'
+import React                     from 'react'
+import { connect }               from 'react-redux'
+import { Card, Divider, Header } from 'semantic-ui-react'
 
-import { NewTask,TaskCard } from './index'
+import { NewTask, TaskCard } from './index'
+
+moment().format()
+
+const today = moment().format('YYYY-MM-DD')
 
 const TasksPage = ({ tasks }) => {
   if (!tasks) return <div />
+  const unfinishedTasks = tasks.filter(task => !task.dates.includes(today))
+  const finishedTasks   = tasks.filter(task => task.dates.includes(today))
   return (
     <div>
       <Header as='h1' textAlign='center'>Today's Tasks</Header>
       <Card.Group centered>
         <NewTask />
-        {tasks.map(task =>
+        {unfinishedTasks.map(task =>
+          <TaskCard key={task.id} task={task} />
+        )}
+      </Card.Group>
+      <Divider />
+      <Header as='h1' textAlign='center'>Finished Tasks</Header>
+      <Card.Group centered>
+        {finishedTasks.map(task =>
           <TaskCard key={task.id} task={task} />
         )}
       </Card.Group>

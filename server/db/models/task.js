@@ -30,9 +30,26 @@ const Task = db.define('task', {
   }
 })
 
-Task.prototype.resetCurrentStreak = function () {
+Task.beforeUpdate(taskInstance => {
+  const today     = moment().format('YYYY-MM-DD')
   const yesterday = moment().subtract(1, 'days').format('YYYY-MM-DD')
-  if (!this.dates.includes(yesterday)) this.currentStreak = 0
-}
+
+  if (taskInstance.dates.includes(yesterday) && taskInstance.dates.includes(today)) {
+    taskInstance.currentStreak++
+  }
+
+  if (taskInstance.longestStreak < taskInstance.currentStreak) {
+    taskInstance.longestStreak = taskInstance.currentStreak
+  }
+
+  if (!taskInstance.dates.includes(yesterday) && taskInstance.dates.includes(today)) {
+    taskInstance.currentStreak = 1
+  }
+
+  if (!taskInstance.dates.includes(yesterday) && !taskInstance.dates.includes(today)) {
+    taskInstance.currentStreak = 0
+  }
+
+})
 
 module.exports = Task
