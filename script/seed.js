@@ -19,7 +19,7 @@ async function seed() {
       imgUrl: '/img/coliseum.png',
       currentStreak: 1,
       longestStreak: 1,
-      dates: ['2018-07-08', '2018-07-10']
+      dates: ['2018-07-09', '2018-07-10']
     }),
     Task.create({
       name: 'Meditation',

@@ -21,7 +21,8 @@ const Task = db.define('task', {
     allowNull: false
   },
   dates: {
-    type: Sequelize.ARRAY(Sequelize.STRING)
+    type: Sequelize.ARRAY(Sequelize.STRING),
+    defaultValue: []
   }
 })
 

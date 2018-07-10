@@ -1,9 +1,10 @@
+import moment                   from 'moment'
+import PropTypes                from 'prop-types'
+import React, { Component }     from 'react'
+import { DayPicker, isSameDay } from 'react-dates'
+
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
-
-import React, { Component } from 'react'
-import { SingleDatePicker, isSameDay } from 'react-dates'
-import moment from 'moment'
 
 moment().format()
 
@@ -20,7 +21,7 @@ class Calendar extends Component {
     const {dates} = this.props
     const datesList = dates.map(date => moment(date))
     return (
-      <SingleDatePicker
+      <DayPicker
         date={this.state.date}
         focused={this.state.focused}
         id="your_unique_id"
@@ -31,9 +32,12 @@ class Calendar extends Component {
         numberOfMonths={2}
         isDayHighlighted={day1 => datesList.some(day2 => isSameDay(day1, day2))}
         isOutsideRange={() => false}
+        noBorder={true}
       />
     )
   }
 }
+
+Calendar.propTypes = {dates: PropTypes.arrayOf(PropTypes.string)}
 
 export default Calendar
