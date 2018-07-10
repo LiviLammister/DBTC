@@ -1,9 +1,10 @@
-import React, { Component }from 'react'
+import React, { Component } from 'react'
 
 import {
   Button,
-  Container,
+  Header,
   Modal,
+  Statistic
 } from 'semantic-ui-react'
 
 import { Calendar } from './index'
@@ -27,9 +28,14 @@ class TaskDetail extends Component {
       >
         <Modal.Header content={task.name} />
         <Modal.Content>
-          <Container textAlign='center'>
-            <Calendar dates={task.dates} />
-          </Container>
+          <Header as='h3'>Calendar</Header> 
+          <Calendar dates={task.dates} />
+          <Header as='h3'>Statistics</Header> 
+          <Statistic.Group widths='three' size='large'>
+            <Statistic value={task.dates.length}  label='Total Days'     />
+            <Statistic value={task.currentStreak} label='Current Streak' />
+            <Statistic value={task.longestStreak} label='Longest Streak' />
+          </Statistic.Group>
         </Modal.Content>
         <Modal.Actions>
           <Button

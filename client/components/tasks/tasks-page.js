@@ -9,7 +9,7 @@ const TasksPage = ({ tasks }) => {
   if (!tasks) return <div />
   return (
     <div>
-      <Header textAlign='center'>Today's Tasks</Header>
+      <Header as='h1' textAlign='center'>Today's Tasks</Header>
       <Card.Group centered>
         <NewTask />
         {tasks.map(task =>

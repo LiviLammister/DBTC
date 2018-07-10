@@ -11,7 +11,9 @@ import {
 class NewTask extends Component {
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      name: ''
+    }
   }
   
   render() {
@@ -25,7 +27,10 @@ class NewTask extends Component {
             </Grid.Column>
             <Grid.Column width='4' floated='right'>
               <Modal trigger={<Button basic color='green' icon='add' />} >
-                Hello
+                <Modal.Header>
+                  New Task
+                </Modal.Header>
+                
               </Modal>
             </Grid.Column>
           </Grid>
