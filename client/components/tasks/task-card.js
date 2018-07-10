@@ -36,6 +36,7 @@ const TaskCard = (props) => {
                 disabled={ifFinishedToday()}
                 onClick={() => {
                   props.editTask(task.id, { ...task, dates: [ ...task.dates, today ] }) // add today to task's date list
+                  forceUpdate()
                 }} 
               />
               <TaskDetail task={task} />

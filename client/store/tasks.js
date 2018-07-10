@@ -32,7 +32,7 @@ export const createTask = task => async dispatch => {
 
 export const editTask = (id, task) => async dispatch => {
   try {
-    const res = await axios.put(`/api/task/${id}`, task)
+    const res = await axios.put(`/api/tasks/${id}`, task)
     dispatch(edit(res.data))
   } catch (err) {
     console.error(err)
@@ -41,7 +41,7 @@ export const editTask = (id, task) => async dispatch => {
 
 export const removeTask = id => async dispatch => {
   try {
-    await axios.delete(`/api/task/${id}`)
+    await axios.delete(`/api/tasks/${id}`)
     dispatch(remove(id))
   } catch (err) {
     console.error(err)
