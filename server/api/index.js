@@ -1,5 +1,6 @@
+'use strict'
+
 const router = require('express').Router()
-module.exports = router
 
 router.use('/tasks', require('./tasks'))
 
@@ -8,3 +9,5 @@ router.use((req, res, next) => {
   error.status = 404
   next(error)
 })
+
+module.exports = router

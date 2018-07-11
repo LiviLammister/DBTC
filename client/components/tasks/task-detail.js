@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+'use strict'
 
+import React, { Component } from 'react'
 import {
   Button,
   Divider,

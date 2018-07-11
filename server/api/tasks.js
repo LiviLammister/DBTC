@@ -1,7 +1,7 @@
+'use strict'
+
 const router   = require('express').Router()
 const { Task } = require('../db/models')
-
-module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
@@ -49,3 +49,5 @@ router.put('/:id', async (req, res, next) => {
       next(err)
     }
 })
+
+module.exports = router

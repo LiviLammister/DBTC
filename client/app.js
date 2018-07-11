@@ -1,11 +1,10 @@
 'use strict'
 
 import React, { Component }  from 'react'
-import { Route, withRouter } from 'react-router-dom'
+import { withRouter }        from 'react-router-dom'
 import { connect }           from 'react-redux'
 
 import {
-  Dashboard,
   Navigation,
   TasksPage,
 }  from './components'
@@ -21,8 +20,7 @@ class App extends Component {
     return (
       <div>
         <Navigation />
-        <Route exact path='/'      component={Dashboard} />
-        <Route exact path='/tasks' component={TasksPage} />
+        <TasksPage />
       </div>
     )
   }

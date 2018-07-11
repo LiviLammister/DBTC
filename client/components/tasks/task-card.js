@@ -1,3 +1,5 @@
+'use strict'
+
 import moment      from 'moment'
 import PropTypes   from 'prop-types'
 import React       from 'react'
