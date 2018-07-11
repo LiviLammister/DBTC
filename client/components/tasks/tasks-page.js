@@ -1,3 +1,5 @@
+'use strict'
+
 import moment                    from 'moment'
 import PropTypes                 from 'prop-types'
 import React                     from 'react'
@@ -13,7 +15,7 @@ const today = moment().format('YYYY-MM-DD')
 const TasksPage = ({ tasks }) => {
   if (!tasks) return <div />
   const unfinishedTasks = tasks.filter(task => !task.dates.includes(today))
-  const finishedTasks   = tasks.filter(task => task.dates.includes(today))
+  const finishedTasks   = tasks.filter(task =>  task.dates.includes(today))
   return (
     <div>
       <Header as='h1' textAlign='center'>Today's Tasks</Header>

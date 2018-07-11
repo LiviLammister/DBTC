@@ -63,5 +63,12 @@ describe('Task routes', () => {
         })
     })
 
+    // @bug Test returning 500
+    xit('DELETE /api/tasks/:id', () => {
+      return request(app)
+        .delete('/api/tasks/1')
+        .expect(204)
+    })
+
   }) // end /api/tasks
 }) // end Task routes

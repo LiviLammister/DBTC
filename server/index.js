@@ -1,16 +1,16 @@
+'use strict'
+
 const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const compression = require('compression')
 const session = require('express-session')
-const passport = require('passport')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const db = require('./db')
 const sessionStore = new SequelizeStore({db})
 const PORT = process.env.PORT || 8080
 const app = express()
-const socketio = require('socket.io')
 module.exports = app
 
 // This is a global Mocha hook, used for resource cleanup.
@@ -29,7 +29,6 @@ if (process.env.NODE_ENV === 'test') {
  */
 if (process.env.NODE_ENV !== 'production') require('../secrets')
 
-
 const createApp = () => {
   app.use(morgan('dev'))
 
@@ -40,7 +39,6 @@ const createApp = () => {
 
   app.use('/api', require('./api'))
 
-  // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'public')))
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
@@ -72,10 +70,6 @@ const startListening = () => {
   const server = app.listen(PORT, () =>
     console.log(`Mixing it up on port ${PORT}`)
   )
-
-  // set up our socket control center
-  const io = socketio(server)
-  require('./socket')(io)
 }
 
 const syncDb = () => db.sync()
