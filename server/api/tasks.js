@@ -40,3 +40,12 @@ router.put('/:id', async (req, res, next) => {
     next(err)
   }
 })
+
+  router.delete('/:id', async (req, res, next) => {
+    try {
+      await Task.destroy(req.body, { where: { id: req.params.id }, returning: true })
+      res.sendStatus(204)
+    } catch (err) {
+      next(err)
+    }
+})
