@@ -14,6 +14,10 @@ describe('Task model', () => {
       testTask = await Task.create({ name: 'test' })
     })
 
+    it('Correctly sets default image URL', () => {
+      expect(testTask.imgUrl).to.be.equal('/img/question.png')
+    })
+
     it('Sets current streak to 0', () => {
       expect(testTask.currentStreak).to.be.equal(0)
     })

@@ -1,3 +1,5 @@
+'use strict'
+
 const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
@@ -27,7 +29,6 @@ if (process.env.NODE_ENV === 'test') {
  */
 if (process.env.NODE_ENV !== 'production') require('../secrets')
 
-
 const createApp = () => {
   app.use(morgan('dev'))
 
@@ -38,7 +39,6 @@ const createApp = () => {
 
   app.use('/api', require('./api'))
 
-  // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'public')))
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
