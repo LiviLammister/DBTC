@@ -9,17 +9,23 @@ async function seed() {
   await Promise.all([
     Task.create({
       name: 'French',
-      imgUrl: '/img/eiffel-tower.png',
+      imgUrl: '/img/eiffel-tower.png'
+    }),
+    Task.create({
+      name: 'German',
+      imgUrl: '/img/holstentor.png'
     }),
     Task.create({
       name: 'Italian',
-      imgUrl: '/img/coliseum.png',
-      dates: ['2018-07-08']
+      imgUrl: '/img/coliseum.png'
+    }),
+    Task.create({
+      name: 'Just Water',
+      imgUrl: '/img/water.png'
     }),
     Task.create({
       name: 'Meditation',
-      imgUrl: '/img/yoga.png',
-      dates: ['2018-07-07', '2018-07-08']
+      imgUrl: '/img/yoga.png'
     }),
     Task.create({
       name: 'No Waste',
@@ -35,13 +41,15 @@ async function seed() {
     }),
     Task.create({
       name: 'Read',
-      imgUrl: '/img/book.png',
-      dates: ['2018-07-08']
+      imgUrl: '/img/book.png'
+    }),
+    Task.create({
+      name: 'Swimming',
+      imgUrl: '/img/swimming.png'
     }),
     Task.create({
       name: 'Write App',
       imgUrl: '/img/coding.png',
-      dates: ['2018-07-08']
     })
   ])
   console.log(`seeded successfully`)
