@@ -23,9 +23,7 @@ class NewTask extends Component {
     }
   }
   
-  _handleChange = (e, { name, value }) => {
-    this.setState({ [name]: value })
-  }
+  _handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   _handleSubmit = () => {
     this.props.createTask(this.state)

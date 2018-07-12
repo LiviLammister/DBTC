@@ -10,7 +10,10 @@ const REMOVE_TASK   = 'REMOVE_TASK'
 const getAll = tasks => ({ type: GET_ALL_TASKS, tasks })
 const create = task  => ({ type: CREATE_TASK,   task  })
 const edit   = task  => ({ type: EDIT_TASK,     task  })
-const remove = id    => ({ type: REMOVE_TASK,   id    })
+const remove = id    => {
+  console.log('remove')
+  return { type: REMOVE_TASK,   id    }
+}
 
 export const getAllTasks = () => async dispatch => {
   try {
@@ -40,6 +43,7 @@ export const editTask = (id, task) => async dispatch => {
 }
 
 export const removeTask = id => async dispatch => {
+  console.log('remove task')
   try {
     await axios.delete(`/api/tasks/${id}`)
     dispatch(remove(id))
@@ -49,6 +53,7 @@ export const removeTask = id => async dispatch => {
 }
 
 const reducer = (tasks = [], action) => {
+  console.log(action)
   switch (action.type) {
     case GET_ALL_TASKS:
       return action.tasks
@@ -57,7 +62,7 @@ const reducer = (tasks = [], action) => {
     case EDIT_TASK:
       return tasks.map(originalTask => (action.id === originalTask.id ? action.task : originalTask))
     case REMOVE_TASK:
-      return tasks.map(task => task.id !== action.id)
+      return tasks.filter(task => task.id !== action.id)
     default:
       return tasks
   }

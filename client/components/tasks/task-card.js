@@ -3,7 +3,7 @@
 import moment      from 'moment'
 import PropTypes   from 'prop-types'
 import React       from 'react'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import {
   Button,
   Card,
