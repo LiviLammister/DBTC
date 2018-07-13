@@ -6,6 +6,7 @@ import {
   Divider,
   Image,
   Modal,
+  Popup,
   Statistic
 } from 'semantic-ui-react'
 
@@ -19,12 +20,16 @@ class TaskDetail extends Component {
     const { task } = this.props
     return (
       <Modal
-        trigger={<Button
-          basic
-          color='grey'
-          icon='ellipsis horizontal'
-          onClick={this.handleOpen}
-        />}
+        trigger={
+          <Popup 
+          trigger={<Button
+            basic
+            color='grey'
+            icon='ellipsis horizontal'
+            onClick={this.handleOpen}
+            />}
+          content='More Information'
+          />}
         open={this.state.modalOpen}
         onClose={this.handleClose}
       >

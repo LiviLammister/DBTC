@@ -8,6 +8,11 @@ async function seed() {
   console.log('db synced!')
   await Promise.all([
     Task.create({
+      name: '10,000 Steps',
+      imgUrl: '/img/walking.png',
+      dates: ['2018-07-01', '2018-07-02', '2018-07-03', '2018-07-04', '2018-07-05', '2018-07-06', '2018-07-07', '2018-07-08', '2018-07-09', '2018-07-10', '2018-07-11', '2018-07-12', ]
+    }),
+    Task.create({
       name: 'French',
       imgUrl: '/img/eiffel-tower.png'
     }),
@@ -25,7 +30,8 @@ async function seed() {
     }),
     Task.create({
       name: 'Meditation',
-      imgUrl: '/img/yoga.png'
+      imgUrl: '/img/yoga.png',
+      dates: ['2018-07-10', '2018-07-11', '2018-07-12']
     }),
     Task.create({
       name: 'No Waste',
@@ -49,7 +55,7 @@ async function seed() {
     }),
     Task.create({
       name: 'Write App',
-      imgUrl: '/img/coding.png',
+      imgUrl: '/img/coding.png'
     })
   ])
   console.log(`seeded successfully`)

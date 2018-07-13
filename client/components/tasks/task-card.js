@@ -9,7 +9,8 @@ import {
   Card,
   Grid,
   Header,
-  Image
+  Image,
+  Popup
 } from 'semantic-ui-react'
 
 import { TaskDetail } from './index'
@@ -31,16 +32,20 @@ const TaskCard = (props) => {
           </Grid.Column>
           <Grid.Column width='6' floated='right'>
             <Button.Group>
-              <Button
-                basic
-                color='green'
-                icon='check'
-                disabled={ifFinishedToday()}
-                onClick={() => {
-                  props.editTask(task.id, { ...task, dates: [ ...task.dates, today ] }) // add today to task's date list
-                  window.location.reload()
-                }} 
-              />
+              <Popup
+                trigger={<Button
+                  basic
+                  color='green'
+                  icon='check'
+                  disabled={ifFinishedToday()}
+                  onClick={() => {
+                    props.editTask(task.id, { ...task, dates: [ ...task.dates, today ] }) // add today to task's date list
+                    window.location.reload()
+                  }} 
+                  />}
+                  content='Mark task as complete'
+                />
+              
               <TaskDetail task={task} />
             </Button.Group>
           </Grid.Column>
