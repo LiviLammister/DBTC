@@ -14,8 +14,10 @@ const today = moment().format('YYYY-MM-DD')
 
 const TasksPage = ({ tasks }) => {
   if (!tasks) return <div />
-  const unfinishedTasks = tasks.filter(task => !task.dates.includes(today))
-  const finishedTasks   = tasks.filter(task =>  task.dates.includes(today))
+  const archivedTasks   = tasks.filter(task =>  task.archived)
+  const activeTasks     = tasks.filter(task => !task.archived)
+  const unfinishedTasks = activeTasks.filter(task => !task.dates.includes(today))
+  const finishedTasks   = activeTasks.filter(task =>  task.dates.includes(today))
   return (
     <div>
       <Header as='h1' textAlign='center'>Today's Tasks</Header>
@@ -28,9 +30,12 @@ const TasksPage = ({ tasks }) => {
       <Divider />
       <Header as='h1' textAlign='center'>Finished Tasks</Header>
       <Card.Group centered>
-        {finishedTasks.map(task =>
-          <TaskCard key={task.id} task={task} />
-        )}
+        {finishedTasks.map(task => <TaskCard key={task.id} task={task} />)}
+      </Card.Group>
+      <Divider />
+      <Header as='h1' textAlign='center'>Archived Tasks</Header>
+      <Card.Group centered>
+        {archivedTasks.map(task => <TaskCard key={task.id} task={task} />)}
       </Card.Group>
     </div>
   )

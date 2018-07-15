@@ -13,6 +13,10 @@ async function seed() {
       dates: ['2018-07-01', '2018-07-02', '2018-07-03', '2018-07-04', '2018-07-05', '2018-07-06', '2018-07-07', '2018-07-08', '2018-07-09', '2018-07-10', '2018-07-11', '2018-07-12', ]
     }),
     Task.create({
+      name: 'Brain Training',
+      imgUrl: '/img/brain.png'
+    }),
+    Task.create({
       name: 'French',
       imgUrl: '/img/eiffel-tower.png'
     }),
@@ -42,8 +46,16 @@ async function seed() {
       imgUrl: '/img/dollar-symbol.png'
     }),
     Task.create({
-      name: 'Paleo',
-      imgUrl: '/img/eat.png'
+      name: 'No Dairy',
+      imgUrl: '/img/no-dairy.png'
+    }),
+    Task.create({
+      name: 'No Gluten',
+      imgUrl: '/img/no-gluten.png'
+    }),
+    Task.create({
+      name: 'No Sugar',
+      imgUrl: '/img/no-sugar.png'
     }),
     Task.create({
       name: 'Read',

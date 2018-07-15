@@ -29,6 +29,10 @@ const Task = db.define('task', {
   dates: {
     type: Sequelize.ARRAY(Sequelize.STRING),
     defaultValue: []
+  },
+  archived: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 

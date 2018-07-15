@@ -1,5 +1,6 @@
 'use strict'
 
+import PropTypes            from 'prop-types'
 import React, { Component } from 'react'
 import {
   Button,
@@ -22,13 +23,13 @@ class TaskDetail extends Component {
       <Modal
         trigger={
           <Popup 
-          trigger={<Button
-            basic
-            color='grey'
-            icon='ellipsis horizontal'
-            onClick={this.handleOpen}
+            trigger={<Button
+              basic
+              color='grey'
+              icon='ellipsis horizontal'
+              onClick={this.handleOpen}
             />}
-          content='More Information'
+            content='More Information'
           />}
         open={this.state.modalOpen}
         onClose={this.handleClose}
@@ -60,5 +61,7 @@ class TaskDetail extends Component {
     )
   }
 }
+
+TaskDetail.propTypes = { task: PropTypes }
 
 export default TaskDetail
