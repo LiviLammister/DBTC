@@ -20,7 +20,11 @@ const TasksPage = ({ tasks }) => {
   const finishedTasks   = activeTasks.filter(task =>  task.dates.includes(today))
   return (
     <div>
-      <Header as='h1' textAlign='center'>Today's Tasks</Header>
+      <Header
+        as='h1'
+        content="Today's Tasks"
+        textAlign='center'
+      />
       <Card.Group centered>
         <NewTask />
         {unfinishedTasks.map(task =>
@@ -28,12 +32,20 @@ const TasksPage = ({ tasks }) => {
         )}
       </Card.Group>
       <Divider />
-      <Header as='h1' textAlign='center'>Finished Tasks</Header>
+      <Header
+        as='h1'
+        content='Finished Tasks'
+        textAlign='center'
+      />
       <Card.Group centered>
         {finishedTasks.map(task => <TaskCard key={task.id} task={task} />)}
       </Card.Group>
       <Divider />
-      <Header as='h1' textAlign='center'>Archived Tasks</Header>
+      <Header
+        as='h1'
+        content='Archived Tasks'
+        textAlign='center'
+      />
       <Card.Group centered>
         {archivedTasks.map(task => <TaskCard key={task.id} task={task} />)}
       </Card.Group>

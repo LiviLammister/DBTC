@@ -28,9 +28,12 @@ const TaskCard = (props) => {
       <Card.Content>
         <Grid verticalAlign='middle'>
           <Grid.Column width='10' floated='left'>
-            <Header as='h3'>{task.name}</Header>
+            <Header as='h3' content={task.name} />
           </Grid.Column>
-          <Grid.Column width='6' floated='right'>
+          <Grid.Column
+            floated='right'
+            width='6'
+          >
             <Button.Group>
               <Popup
                 trigger={<Button

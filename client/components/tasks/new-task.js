@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component } from 'react'
-import { connect }          from 'react-redux';
+import { connect } from 'react-redux';
 import {
   Button,
   Card,
@@ -22,7 +22,7 @@ class NewTask extends Component {
       imgUrl: ''
     }
   }
-  
+
   _handleChange = (e, { name, value }) => {
     this.setState({ [name]: value })
   }
@@ -35,47 +35,63 @@ class NewTask extends Component {
   render() {
     return (
       <Card>
-        <Image style={{ 'padding': '5px' }} src='/img/add.png' />
+        <Image
+          style={{ 'padding': '5px' }}
+          src='/img/add.png'
+        />
         <Card.Content>
           <Grid verticalAlign='middle'>
-            <Grid.Column width='8' floated='left'>
-              <Header as='h3'>Add Task</Header>
+            <Grid.Column
+              floated='left'
+              width='8'
+            >
+              <Header
+                as='h3'
+                content="Add Task"
+              />
             </Grid.Column>
-            <Grid.Column width='4' floated='right'>
-              <Modal trigger={<Button basic color='green' icon='add' />} >
-                <Modal.Header>
-                  New Task
-                </Modal.Header>
-              <Modal.Content>
-                <Grid columns={2}>
-                  <Grid.Column>
-                    <Input
-                      fluid
-                      label='Name'
-                      name='name'
-                      onChange={this._handleChange}
-                      value={this.state.name}
-                    />
-                  </Grid.Column>
-                  <Grid.Column>
-                    <Input
-                      fluid
-                      label='Image URL'
-                      name='imgUrl'
-                      onChange={this._handleChange}
-                      value={this.state.imgUrl}
-                    />
-                  </Grid.Column>
-                </Grid>
-              </Modal.Content>
-              <Modal.Actions>
-                <Button
+            <Grid.Column
+              width='4'
+              floated='right'
+            >
+              <Modal
+                trigger={<Button
+                  basic
                   color='green'
-                  content='Submit'
-                  onClick={this._handleSubmit}
-                />
-                <Button content='Cancel' />
-              </Modal.Actions>
+                  icon='add'
+                />}
+              >
+                <Modal.Header content='New Task' />
+                <Modal.Content>
+                  <Grid columns={2}>
+                    <Grid.Column>
+                      <Input
+                        fluid
+                        label='Name'
+                        name='name'
+                        onChange={this._handleChange}
+                        value={this.state.name}
+                      />
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Input
+                        fluid
+                        label='Image URL'
+                        name='imgUrl'
+                        onChange={this._handleChange}
+                        value={this.state.imgUrl}
+                      />
+                    </Grid.Column>
+                  </Grid>
+                </Modal.Content>
+                <Modal.Actions>
+                  <Button
+                    color='green'
+                    content='Submit'
+                    onClick={this._handleSubmit}
+                  />
+                  <Button content='Cancel' />
+                </Modal.Actions>
               </Modal>
             </Grid.Column>
           </Grid>

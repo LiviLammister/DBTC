@@ -14,9 +14,15 @@ import {
 import { Calendar } from './index'
 
 class TaskDetail extends Component {
-  state = { modalOpen: false }
-  handleOpen = () => this.setState({ modalOpen: true })
-  handleClose = () => this.setState({ modalOpen: false })
+  constructor() {
+    super()
+    this.state = { modalOpen: false }
+  }
+  
+  _handleOpen = () => this.setState({ modalOpen: true })
+
+  _handleClose = () => this.setState({ modalOpen: false })
+
   render() {
     const { task } = this.props
     return (
@@ -27,12 +33,12 @@ class TaskDetail extends Component {
               basic
               color='grey'
               icon='ellipsis horizontal'
-              onClick={this.handleOpen}
+              onClick={this._handleOpen}
             />}
             content='More Information'
           />}
         open={this.state.modalOpen}
-        onClose={this.handleClose}
+        onClose={this._handleClose}
       >
         <Modal.Header content={task.name} />
         <Modal.Content image>
@@ -54,7 +60,7 @@ class TaskDetail extends Component {
           />
           <Button
             content='Close'
-            onClick={this.handleClose}
+            onClick={this._handleClose}
           />
         </Modal.Actions>
       </Modal>
@@ -62,6 +68,8 @@ class TaskDetail extends Component {
   }
 }
 
-TaskDetail.propTypes = { task: PropTypes }
+TaskDetail.propTypes = {
+  task: PropTypes
+}
 
 export default TaskDetail

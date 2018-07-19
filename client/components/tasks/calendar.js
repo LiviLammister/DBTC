@@ -10,8 +10,7 @@ import { DayPickerRangeController, isSameDay } from 'react-dates'
 
 moment().format()
 
-const Calendar = (props) => {
-    const {dates} = props
+const Calendar = ({ dates }) => {
     const datesList = dates.map(date => moment(date))
     return (
       <DayPickerRangeController
