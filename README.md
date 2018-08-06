@@ -90,6 +90,32 @@ change the following line
 
 ## Before Starting
 
+Before running the server we have to compile some stuff using the following command.
+
 `npm run start-dev`
 
+The command below is not required but will see the database with demo/test data.
+
 `npm run seed`
+
+## Running the Server
+
+The simplest way to run the server is to run the command below.
+
+`npm start`
+
+There are cases with Debian/Ubuntu where permissions issues will occure due to database users not existing. If this is the case you can run the command below.
+
+`sudo -u postgres npm start`
+
+If the intention is to run this on a server then it is suggested something like forever is used to run this project. Forever can be installed on Debian/Ubuntu using....
+
+`sudo npm install forever -g`
+
+Once forever is installed you can run the app the the following command.
+
+`sudo -u postgres forever start ./server/index.js`
+
+## Troubleshooting
+
+
